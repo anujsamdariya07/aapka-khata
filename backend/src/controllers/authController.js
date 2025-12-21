@@ -83,6 +83,7 @@ const signIn = async (req, res) => {
         id: user._id,
         fullName: user.fullName,
         email: user.email,
+        budget: user.budget,
       },
     });
   } catch (error) {
@@ -106,7 +107,12 @@ const check = async (req, res) => {
 
     return res.status(200).json({
       message: 'Authenticated user retrieved successfully',
-      user,
+      user: {
+        id: user._id,
+        fullName: user.fullName,
+        email: user.email,
+        budget: user.budget,
+      },
     });
   } catch (error) {
     console.error('Error in checkAuth controller:', error.message);

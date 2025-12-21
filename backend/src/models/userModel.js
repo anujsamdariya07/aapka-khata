@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     budget: {
-      type: String,
+      type: Number,
       required: true,
     },
     expenses: [
@@ -36,6 +36,12 @@ const userSchema = new mongoose.Schema(
         date: {
           type: Date,
           default: Date.now,
+        },
+        month: {
+          type: String,
+        },
+        year: {
+          type: String,
         },
       },
     ],

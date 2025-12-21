@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import dbConnect from './config/dbConnect.js';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
+import expenseRoutes from './routes/expenseRoutes.js';
 
 const app = express();
 
@@ -17,7 +18,8 @@ app.use(cors(
   }
 ));
 
-app.use('/api/auth', authRoutes)
+app.use('/api/auth', authRoutes);
+app.use('/api/expenses', expenseRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}...`);

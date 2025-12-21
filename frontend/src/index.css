@@ -12,67 +12,67 @@
 
 @layer base {
   :root {
-    --background: 240 4% 95%;
-    --foreground: 240 5% 10%;
+    --background: 0 0% 98%;
+    --foreground: 207 67% 19%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 240 5% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 207 67% 19%;
 
-    --popover: 240 5% 90%;
-    --popover-foreground: 240 5% 10%;
+    --popover: 0 0% 95%;
+    --popover-foreground: 207 67% 19%;
 
-    --primary: 258 89% 66%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 40 92% 66%;
+    --primary-foreground: 207 67% 19%;
 
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 24 68% 59%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 4% 83%;
-    --muted-foreground: 240 5% 10%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 207 30% 40%;
 
-    --accent: 269 100% 98%;
-    --accent-foreground: 270 91% 65%;
+    --accent: 24 68% 59%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
+    --destructive: 8 64% 49%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 4% 83%;
-    --input: 240 4% 83%;
-    --ring: 258 89% 66%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 40 92% 66%;
 
     --radius: 0.5rem;
 
-    --chart-1: 255 91% 76%;
-    --chart-2: 270 95% 75%;
-    --chart-3: 234 89% 73%;
-    --chart-4: 258 89% 66%;
-    --chart-5: 240 3% 46%;
+    --chart-1: 40 92% 66%;
+    --chart-2: 24 68% 59%;
+    --chart-3: 8 64% 49%;
+    --chart-4: 207 67% 19%;
+    --chart-5: 207 30% 40%;
 
-    --sidebar-background: oklch(0.9691 0.0161 293.7558);
-    --sidebar-foreground: 240 5% 10%;
-    --sidebar-primary: 258 89% 66%;
-    --sidebar-primary-foreground: 250 100% 97%;
-    --sidebar-accent: 240 5% 33%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 4% 83%;
-    --sidebar-ring: 258 89% 66%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 207 67% 19%;
+    --sidebar-primary: 40 92% 66%;
+    --sidebar-primary-foreground: 207 67% 19%;
+    --sidebar-accent: 24 68% 59%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 40 92% 66%;
 
     /* Custom shadows */
-    --shadow-soft: 2px 2px 4px 0px hsl(255 86% 66% / 0.10);
-    --shadow-medium: 2px 2px 4px 0px hsl(255 86% 66% / 0.20), 2px 1px 2px -1px hsl(255 86% 66% / 0.20);
-    --shadow-elevated: 2px 2px 4px 0px hsl(255 86% 66% / 0.20), 2px 4px 6px -1px hsl(255 86% 66% / 0.20);
-    --shadow-glow: 2px 2px 4px 0px hsl(255 86% 66% / 0.50);
+    --shadow-soft: 2px 2px 4px 0px hsl(40 92% 66% / 0.15);
+    --shadow-medium: 2px 2px 4px 0px hsl(40 92% 66% / 0.25), 2px 1px 2px -1px hsl(40 92% 66% / 0.20);
+    --shadow-elevated: 2px 2px 4px 0px hsl(40 92% 66% / 0.30), 2px 4px 6px -1px hsl(40 92% 66% / 0.25);
+    --shadow-glow: 2px 2px 4px 0px hsl(40 92% 66% / 0.60);
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, oklch(0.6056 0.2189 292.7172) 0%, oklch(0.4907 0.2412 292.5809) 100%);
-    --gradient-hero: linear-gradient(180deg, oklch(1.0000 0 0) 0%, oklch(0.9691 0.0161 293.7558) 100%);
-    --gradient-card: linear-gradient(145deg, oklch(1.0000 0 0) 0%, oklch(0.9618 0.0202 295.1913) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(40 92% 66%) 0%, hsl(24 68% 59%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 15% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(40 25% 97%) 100%);
 
     /* Success and balance colors */
-    --success: oklch(0.72 0.19 142);
-    --success-foreground: oklch(1.0000 0 0);
-    --danger: oklch(0.6368 0.2078 25.3313);
-    --danger-foreground: oklch(1.0000 0 0);
+    --success: hsl(142 70% 45%);
+    --success-foreground: hsl(0 0% 100%);
+    --danger: hsl(8 64% 49%);
+    --danger-foreground: hsl(0 0% 100%);
     --sidebar: 0 0% 98%;
     --font-sans: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-serif: 'Cormorant Garamond', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -90,66 +90,66 @@
   }
 
   .dark {
-    --background: 240 5% 10%;
-    --foreground: 0 0% 98%;
+    --background: 207 67% 19%;
+    --foreground: 40 92% 90%;
 
-    --card: 240 3% 15%;
-    --card-foreground: 0 0% 98%;
+    --card: 207 60% 15%;
+    --card-foreground: 40 92% 90%;
 
-    --popover: 240 5% 26%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 207 50% 22%;
+    --popover-foreground: 40 92% 90%;
 
-    --primary: 255 91% 76%;
-    --primary-foreground: 261 72% 22%;
+    --primary: 40 92% 66%;
+    --primary-foreground: 207 67% 19%;
 
-    --secondary: 240 3% 46%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 24 68% 59%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 3% 46%;
-    --muted-foreground: 0 0% 98%;
+    --muted: 207 40% 35%;
+    --muted-foreground: 40 40% 75%;
 
-    --accent: 273 86% 20%;
-    --accent-foreground: 270 95% 75%;
+    --accent: 24 68% 59%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 85% 97%;
+    --destructive: 8 70% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 5% 33%;
-    --input: 240 5% 33%;
-    --ring: 255 91% 76%;
+    --border: 207 30% 30%;
+    --input: 207 30% 30%;
+    --ring: 40 92% 66%;
 
-    --chart-1: 252 94% 85%;
-    --chart-2: 269 97% 85%;
-    --chart-3: 229 93% 81%;
-    --chart-4: 255 91% 76%;
-    --chart-5: 240 3% 46%;
+    --chart-1: 40 92% 70%;
+    --chart-2: 24 68% 65%;
+    --chart-3: 8 70% 55%;
+    --chart-4: 40 92% 66%;
+    --chart-5: 207 40% 50%;
 
-    --sidebar-background: oklch(0.2077 0.0398 265.7549);
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 255 91% 76%;
-    --sidebar-primary-foreground: 261 72% 22%;
-    --sidebar-accent: 270 95% 75%;
-    --sidebar-accent-foreground: 273 86% 20%;
-    --sidebar-border: 240 5% 33%;
-    --sidebar-ring: 255 91% 76%;
+    --sidebar-background: 207 67% 19%;
+    --sidebar-foreground: 40 92% 90%;
+    --sidebar-primary: 40 92% 66%;
+    --sidebar-primary-foreground: 207 67% 19%;
+    --sidebar-accent: 24 68% 59%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 207 30% 30%;
+    --sidebar-ring: 40 92% 66%;
 
     /* Custom shadows for dark mode */
-    --shadow-soft: 2px 2px 4px 0px hsl(255 86% 66% / 0.10);
-    --shadow-medium: 2px 2px 4px 0px hsl(255 86% 66% / 0.20), 2px 1px 2px -1px hsl(255 86% 66% / 0.20);
-    --shadow-elevated: 2px 2px 4px 0px hsl(255 86% 66% / 0.20), 2px 4px 6px -1px hsl(255 86% 66% / 0.20);
-    --shadow-glow: 2px 2px 4px 0px hsl(255 86% 66% / 0.50);
+    --shadow-soft: 2px 2px 4px 0px hsl(40 92% 66% / 0.15);
+    --shadow-medium: 2px 2px 4px 0px hsl(40 92% 66% / 0.25), 2px 1px 2px -1px hsl(40 92% 66% / 0.20);
+    --shadow-elevated: 2px 2px 4px 0px hsl(40 92% 66% / 0.30), 2px 4px 6px -1px hsl(40 92% 66% / 0.25);
+    --shadow-glow: 2px 2px 4px 0px hsl(40 92% 66% / 0.60);
 
     /* Gradients for dark mode */
-    --gradient-primary: linear-gradient(135deg, oklch(0.6056 0.2189 292.7172) 0%, oklch(0.4907 0.2412 292.5809) 100%);
-    --gradient-hero: linear-gradient(180deg, oklch(0.2077 0.0398 265.7549) 0%, oklch(0.2329 0.0919 279.1398) 100%);
-    --gradient-card: linear-gradient(145deg, oklch(0.2573 0.0861 281.2883) 0%, oklch(0.2329 0.0919 279.1398) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(40 92% 66%) 0%, hsl(24 68% 59%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(207 67% 19%) 0%, hsl(207 60% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(207 60% 15%) 0%, hsl(207 55% 18%) 100%);
 
     /* Success and balance colors */
-    --success: oklch(0.72 0.19 142);
-    --success-foreground: oklch(1.0000 0 0);
-    --danger: oklch(0.6368 0.2078 25.3313);
-    --danger-foreground: oklch(1.0000 0 0);
-    --sidebar: 240 3% 15%;
+    --success: hsl(142 70% 50%);
+    --success-foreground: hsl(0 0% 100%);
+    --danger: hsl(8 70% 55%);
+    --danger-foreground: hsl(0 0% 100%);
+    --sidebar: 207 60% 15%;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
@@ -235,7 +235,7 @@
 @layer utilities {
   .outline-on-primary {
     @apply text-white hover:bg-white/10;
-    hover:text-white;
+    hover: text-white;
   }
 }
 
