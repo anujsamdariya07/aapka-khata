@@ -52,8 +52,6 @@ const Dashboard = () => {
     getExpenses(month, year);
   }, [currentDate, getExpenses]);
 
-  useEffect(() => console.log(authUser), [authUser]);
-
   // Use budget from auth user or expense store
   const monthlyBudget = authUser?.budget || budget || 0;
 
