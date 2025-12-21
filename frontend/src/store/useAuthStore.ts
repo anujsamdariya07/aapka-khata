@@ -147,7 +147,7 @@ const useAuthStore = create<AuthState>()(
             isCheckingAuth: false,
           });
         } catch (error: unknown) {
-          console.log('Auth check failed:', error);
+          // Silent fail - user is not authenticated, which is expected
           set({
             authUser: null,
             isCheckingAuth: false,
