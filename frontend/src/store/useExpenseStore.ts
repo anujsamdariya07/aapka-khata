@@ -34,6 +34,10 @@ interface ExpenseResponse {
   expense?: Expense;
 }
 
+interface UpdateBudgetData {
+  budget: number;
+}
+
 interface ExpenseState {
   expenses: Expense[];
   budget: number;
@@ -48,6 +52,9 @@ interface ExpenseState {
     expenseData: UpdateExpenseData
   ) => Promise<ExpenseResponse>;
   setExpenses: (expenses: Expense[]) => void;
+  updateBudget: (
+  budgetData: UpdateBudgetData
+) => Promise<{ success: boolean; message?: string; error?: string }>;
 }
 
 interface ApiExpenseSuccessResponse {
@@ -58,6 +65,11 @@ interface ApiExpenseSuccessResponse {
 interface ApiExpensesSuccessResponse {
   message: string;
   expenses: Expense[];
+  budget: number;
+}
+
+interface ApiBudgetSuccessResponse {
+  message: string;
   budget: number;
 }
 
@@ -228,6 +240,52 @@ const useExpenseStore = create<ExpenseState>()((set, get) => ({
       });
 
       return { success: false, error: errorMessage };
+    }
+  },
+
+  updateBudget: async (
+    budgetData: UpdateBudgetData
+  ): Promise<{ success: boolean; message?: string; error?: string }> => {
+    set({ loading: true, error: null });
+
+    try {
+      const response = await axiosInstance.put<ApiBudgetSuccessResponse>(
+        '/expenses/budget',
+        budgetData
+      );
+
+      set({
+        loading: false,
+        budget: response.data.budget,
+      });
+
+      showSuccessToast({
+        message: response.data.message,
+      });
+
+      return {
+        success: true,
+        message: response.data.message,
+      };
+    } catch (error: unknown) {
+      const err = error as AxiosError<ApiErrorResponse>;
+      const errorMessage =
+        err.response?.data?.message || 'Failed to update budget.';
+
+      set({
+        loading: false,
+        error: errorMessage,
+      });
+
+      showErrorToast({
+        message: 'Error updating budget!',
+        description: errorMessage,
+      });
+
+      return {
+        success: false,
+        error: errorMessage,
+      };
     }
   },
 }));

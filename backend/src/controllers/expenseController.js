@@ -159,4 +159,44 @@ const updateExpense = async (req, res) => {
   }
 };
 
-export { addExpense, getExpenses, deleteExpense, updateExpense };
+const updateBudget = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { budget } = req.body;
+
+    if (budget === undefined || budget === null) {
+      return res.status(400).json({
+        message: 'Budget is required.',
+      });
+    }
+
+    if (budget < 0) {
+      return res.status(400).json({
+        message: 'Budget cannot be negative.',
+      });
+    }
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        message: 'User not found.',
+      });
+    }
+
+    user.budget = parseFloat(budget);
+    await user.save();
+
+    return res.status(200).json({
+      message: 'Budget updated successfully.',
+      budget: user.budget,
+    });
+  } catch (error) {
+    console.error('Error updating budget:', error);
+    return res.status(500).json({
+      message: 'Server error. Please try again later.',
+    });
+  }
+};
+
+export { addExpense, getExpenses, deleteExpense, updateExpense, updateBudget };

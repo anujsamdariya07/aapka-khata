@@ -30,8 +30,15 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const Dashboard = () => {
-  const { expenses, budget, loading, addExpense, getExpenses, deleteExpense } =
-    useExpenseStore();
+  const {
+    expenses,
+    budget,
+    loading,
+    addExpense,
+    getExpenses,
+    deleteExpense,
+    updateBudget,
+  } = useExpenseStore();
   const { authUser } = useAuthStore();
 
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -44,6 +51,8 @@ const Dashboard = () => {
     reason: '',
     amount: '',
   });
+  const [budgetInput, setBudgetInput] = useState('');
+  const [budgetLoading, setBudgetLoading] = useState(false);
 
   // Fetch expenses on mount and when month changes
   useEffect(() => {
@@ -51,6 +60,10 @@ const Dashboard = () => {
     const year = currentDate.getFullYear().toString();
     getExpenses(month, year);
   }, [currentDate, getExpenses]);
+
+  useEffect(() => {
+    setBudgetInput((budget || authUser?.budget || 0).toString());
+  }, [budget, authUser]);
 
   // Use budget from auth user or expense store
   const monthlyBudget = authUser?.budget || budget || 0;
@@ -102,6 +115,16 @@ const Dashboard = () => {
   const handleOpenDeleteModal = (expenseId: string) => {
     setExpenseToDelete(expenseId);
     setIsDeleteModalOpen(true);
+  };
+
+  const handleUpdateBudget = async () => {
+    const parsedBudget = parseFloat(budgetInput);
+
+    if (isNaN(parsedBudget)) return;
+
+    setBudgetLoading(true);
+    await updateBudget({ budget: parsedBudget });
+    setBudgetLoading(false);
   };
 
   const handleCloseDeleteModal = () => {
@@ -286,11 +309,30 @@ const Dashboard = () => {
                 )}
               </div>
               <div className='mt-3 sm:mt-4 flex flex-col sm:flex-row sm:gap-6 gap-2 text-xs sm:text-sm'>
-                <div className='flex justify-between sm:block'>
-                  <span className='text-muted-foreground'>Budget: </span>
-                  <span className='text-foreground font-medium ml-1 sm:ml-0'>
-                    ₹{monthlyBudget.toLocaleString('en-IN')}
-                  </span>
+                <div className='flex flex-col sm:flex-row sm:items-center gap-2'>
+                  <span className='text-muted-foreground whitespace-nowrap'>Budget:</span>
+
+                  <div className='flex items-center gap-2'>
+                    <Input
+                      type='number'
+                      value={budgetInput}
+                      onChange={(e) => setBudgetInput(e.target.value)}
+                      className='w-28 h-8'
+                      min='0'
+                    />
+
+                    <Button
+                      size='sm'
+                      onClick={handleUpdateBudget}
+                      disabled={budgetLoading}
+                    >
+                      {budgetLoading ? (
+                        <Loader className='w-4 h-4 animate-spin' />
+                      ) : (
+                        'Save'
+                      )}
+                    </Button>
+                  </div>
                 </div>
                 <div className='flex justify-between sm:block'>
                   <span className='text-muted-foreground'>Spent: </span>

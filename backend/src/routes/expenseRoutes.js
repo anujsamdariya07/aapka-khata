@@ -4,6 +4,7 @@ import {
   getExpenses,
   deleteExpense,
   updateExpense,
+  updateBudget,
 } from '../controllers/expenseController.js';
 import protect from '../middlewares/protectRoute.js';
 
@@ -17,5 +18,9 @@ router.get('/', protect, getExpenses);
 router.delete('/:expenseId', protect, deleteExpense);
 
 router.put('/:expenseId', protect, updateExpense);
+
+router.put('/budget', protect, updateBudget);
+
+router
 
 export default router;
