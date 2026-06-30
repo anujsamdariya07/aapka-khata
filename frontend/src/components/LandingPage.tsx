@@ -14,9 +14,12 @@ import {
   Target
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/navigation';
 import { Card, CardContent } from "@/components/ui/card";
 
 const LandingPage = () => {
+  const router = useRouter()
+
   const features = [
     {
       icon: BarChart3,
@@ -181,6 +184,7 @@ const LandingPage = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up stagger-3">
               <Button 
                 size="lg" 
+                onClick={() => router.push('/dashboard')}
                 className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 shadow-medium hover:shadow-elevated transition-all duration-300 px-8 py-6 text-base font-semibold"
               >
                 Start Tracking Free

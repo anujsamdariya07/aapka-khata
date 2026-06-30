@@ -167,6 +167,18 @@ const Navbar = () => {
                   <span className='font-medium text-foreground'>
                     {authUser.fullName}
                   </span>
+                  {location.pathname !== '/dashboard' && (
+                    <Button
+                      variant='ghost'
+                      className='w-full justify-start px-0 h-auto font-medium'
+                      onClick={() => {
+                        navigate('/dashboard');
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      Dashboard
+                    </Button>
+                  )}
                 </div>
                 <Button
                   onClick={handleLogout}
